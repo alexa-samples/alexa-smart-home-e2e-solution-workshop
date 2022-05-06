@@ -117,3 +117,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 ## Install Utilities ##
 
 1. Install [Node.Js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
+
+## Next Step ##
+
+[Lab 1: Setup Device, WebApp and Backend](Lab 1.md)
