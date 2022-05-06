@@ -57,7 +57,7 @@ working [1]
 
 1.	Install AWS CLI from https://aws.amazon.com/cli/
 2.	[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config)
-> Note: while configuring, select region as “us-east-1”.
+> Note: while configuring, select region as **us-east-1**.
 3.	Open the command line and type the below command:
 ```
 aws iot describe-endpoint --endpoint-type iot:Data-ATS
@@ -93,18 +93,23 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 ## Generate GitHub Access Token
 
 1. Click on your Github account image on the top right corner and then click **Settings**
+
 ![image](https://user-images.githubusercontent.com/83840078/167213429-ddede584-e8a6-4093-8589-7975212f2a16.png)
 
 2. Scroll down and select **Developer settings**
+
 ![image](https://user-images.githubusercontent.com/83840078/167213454-cc5f849b-64e9-4718-9fff-1353450cdf47.png)
 
 3. Click on **Personal Access Tokens** and then click on **Generate new token** button on top right
+
 ![image](https://user-images.githubusercontent.com/83840078/167213482-79be095c-a2b6-4a67-81f0-e5d14d6e2858.png)
 
 4. Enter a note in the **Note** field and select the **repo** scope
+
 ![image](https://user-images.githubusercontent.com/83840078/167213505-d0912467-f5b0-4d1b-84c3-03c07be273dd.png)
 
 5. Click on copy button to copy the token
+
 ![image](https://user-images.githubusercontent.com/83840078/167213525-1d78dba9-df29-485f-a843-85db46ca2851.png)
 
 6. Keep a note of this token. It'll be used in the next lab.
