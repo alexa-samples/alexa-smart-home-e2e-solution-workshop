@@ -8,15 +8,31 @@ Below diagram provides a high-level architecture of the complete solution.
 
 ![image](https://user-images.githubusercontent.com/83840078/167206598-b9baebb2-bf07-460e-b332-b30fb5ab3450.png)
 
-This workshop is divided in four labs, as follows:
+This workshop is divided in five labs, as follows:
 
-**Lab 1:** we’ll use Cloud Formation to setup a simulated device, frontend (web app) and the backend infrastructure. The backend infrastructure constitutes of Cognito for user management and authentication; API gateway to provide a secure HTTP API endpoint for retrieving user or device’s data; lambda functions for compute and DynamoDB for token storage. 
+**Lab 0: Pre-requisites**
 
-**Lab 2:** we’ll create a smart home skill to control the simulated device using Alexa. For the smart home skill, we’ll implement account linking and update the backend code to respond to Alexa directives.
+In this lab, we'll set up different accounts and retrieve parameters required for the following labs.
 
-**Lab 3:** we’ll enable the replenishment functionality. For this, we’ll create a dash replenishment device and enable asynchronous updates to proactively notify Alexa about inventory updates.
+**Lab 1: Setup Device, WebApp and Backend** 
 
-**Lab 4:** we’ll enable app-to-app account linking. Using this, users will be able to enable or disable skill and discover or delete devices from your web app. 
+In this lab, we’ll use Cloud Formation to setup a simulated device, frontend (web app) and the backend infrastructure. The backend infrastructure constitutes of Cognito for user management and authentication; API gateway to provide a secure HTTP API endpoint for retrieving user or device’s data; lambda functions for compute and DynamoDB for token storage. 
+
+**Lab 2: Setup Smart Home Skill** 
+
+In this lab, we’ll create a smart home skill to control the simulated device using Alexa. For the smart home skill, we’ll implement account linking and update the backend code to respond to Alexa directives.
+
+**Lab 3: Replenishment and Proactive State Updates** 
+
+In this lab, we’ll enable the replenishment functionality. For this, we’ll create a dash replenishment device and enable asynchronous updates to proactively notify Alexa about inventory updates.
+
+**Lab 4: App-to-app account linking** 
+
+In this lab, we’ll enable app-to-app account linking. Using this, users will be able to enable or disable skill and discover or delete devices from your web app. 
+
+## Next Step:
+
+**[PRE-REQUISITES](pre-requisites.md)**
 
 ## Security
 
