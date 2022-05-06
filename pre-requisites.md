@@ -118,6 +118,14 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 1. Install [Node.Js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
 
-## Next Step
+## Summary & Next Step
+
+Congratulations! You have successfully finished your Pre-requisites lab. By now, you would have created the following:
+•	Your Amazon AWS account
+•	Your Amazon Developer
+•	Created a webApp using the webApp template
+•	Generated an access token for your Github repository with the repo scope
+
+In the next lab, we'll set up the device, web app and the backend. 
 
 [Lab 1: Setup Device, WebApp and Backend](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop/blob/496eb2f61621624d29e985f37a094f876cb0f05c/Lab%201.md) 
