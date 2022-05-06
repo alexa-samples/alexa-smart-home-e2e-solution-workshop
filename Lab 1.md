@@ -187,4 +187,4 @@ Congratulations! You’ve now created a simulated device and a web app to regist
 
 In the next lab, we’ll set up a Smart Home skill and modify components (AWS Cognito) of this lab to implement account linking and update the backend code (syncUpdates lambda function) to control the device using Alexa.
 
-[Lab 2: Setup Smart Home Skill](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop/blob/5cf335e73be397f67dc3a1af17d40740715f9bfa/Lab%202.md)
+[Lab 2: Setup Smart Home Skill](Lab%202.md)
