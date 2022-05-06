@@ -61,7 +61,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 
 ###### Creating an Alexa Client in Cognito
 
-1.	Sign in to the [AWS Cognito](https://console.aws.amazon.com/cognito console). Choose **Manage User Pools** and then select **webAppAuth** pool. This is the user pool which was created for you in Lab 1.
+1.	Sign in to the [AWS Cognito console](https://console.aws.amazon.com/cognito). Choose **Manage User Pools** and then select **webAppAuth** pool. This is the user pool which was created for you in Lab 1.
 2.	From the **General settings** menu, choose **App Clients** to set up applications that will connect to your Amazon Cognito user pool.
 3.	Choose **Add another app client**, and provide the App client name. In this example, I have chosen “Alexa.” 
 4.	Update the **Refresh token expiration** to 3650 days, maximum allowed time such that refresh token won’t expire. Leave the rest of the options set to default and choose **Create App Client** to generate the client record for Alexa to use. This process creates an app client ID and a secret.
@@ -78,6 +78,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 ![image](https://user-images.githubusercontent.com/83840078/167220576-4d9fb08e-da70-4afe-96b6-616648333b97.png)
 
 8.	Make a note of this subdomain name and the region. 
+
 | Parameter | Value 
 | --- | ---
 | URL |	https://smart-home-demo.auth.us-east-1.amazoncognito.com 
@@ -109,7 +110,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 
 8.	Choose **Save** at the top of the page. Make a note of the **redirect URLs** at the bottom of the page, as these will be required to finish the Amazon Cognito configuration. 
 9.	Switch back to your Amazon Cognito user pool. Under **App Integration**, choose **App Client Settings**. You will see the integration settings for the **Alexa** client in the details panel on the right. 
-> Remembet to select the Alexa client
+> Remember to select the Alexa client
 
 10.	Under **Enabled Identity Providers**, select **Cognito User Pool**. 
 11.	Under **Callback URL(s)** enter in the three callback URLs from your Alexa skill page. For example, here are all three URLs separated by commas:
