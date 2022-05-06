@@ -45,3 +45,70 @@ working [1]
 [10] This is the root folder for the simulated device
 [11] Location where IoT device certificates will be stored
 ```
+
+
+## Sign up for an AWS account ##
+
+1. Open https://portal.aws.amazon.com/billing/signup. If you already have one, then skip to the next section.
+2. Follow the provided instructions
+
+
+## Install AWS CLI ##
+
+1.	Install AWS CLI from https://aws.amazon.com/cli/
+2.	[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config)
+> Note: while configuring, select region as “us-east-1”.
+3.	Open the command line and type the below command:
+```
+aws iot describe-endpoint --endpoint-type iot:Data-ATS
+```
+4. Copy the **MQTT endpoint address**. The endpoint address should look something like `aevkbb4wnegov-ats.iot.us-east-1.amazonaws.com`
+
+
+## Setup Amazon Developer Account ##
+
+1. Click [here](https://www.amazon.com/ap/register?clientContext=131-2644327-8903012&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&siteState=clientContext%3D131-5707077-1815966%2CsourceUrl%3Dhttps%253A%252F%252Fdeveloper.amazon.com%252Fsettings%252Fconsole%252Fhome%2Csignature%3DuNzCzFV0Pom1J7jlUAmGSIfpg9Mj3D&marketPlaceId=ATVPDKIKX0DER&language=en_US&pageId=amzn_developer_portal&openid.return_to=https%3A%2F%2Fdeveloper.amazon.com%2Fsettings%2Fconsole%2Fhome&prevRID=FM0JYMJSGFZK7RMBH1E8&openid.assoc_handle=mas_dev_portal&openid.mode=checkid_setup&prepopulatedLoginId=&failedSignInCount=0&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0) to register for an Amazon Developer account. This is dfferent from AWS developer account and is needed to create Smart Home skill. If you already have one, then skip to the next section.
+
+
+## Create a Web App repository ##
+
+1. Navigate to the [webApp directory](webApp)
+2. Click **Use this template** button to create a copy in your repo
+
+![image](https://user-images.githubusercontent.com/83840078/167212660-cdb8eb1e-6936-4a4e-b22f-372d8adef391.png)
+
+3. Add details for your repository and click **Create repository from template**
+
+![image](https://user-images.githubusercontent.com/83840078/167212795-39104da7-ce02-4416-9690-20e68c00c725.png)
+
+4. Once repository is created, it'll show all the files in your account
+
+![image](https://user-images.githubusercontent.com/83840078/167212862-78d6371b-91eb-4d63-82f5-db615dd28953.png)
+
+5. Click on the Green color button **Code**, and click the copy button next to your GIT url. Keep a note of this URL, this will be needed in the next lab.
+
+![image](https://user-images.githubusercontent.com/83840078/167212990-a90d2fda-eaac-4e98-9bc8-342ffeb7d192.png)
+
+
+## Generate GitHub Access Token
+
+1. Click on your Github account image on the top right corner and then click **Settings**
+![image](https://user-images.githubusercontent.com/83840078/167213429-ddede584-e8a6-4093-8589-7975212f2a16.png)
+
+2. Scroll down and select **Developer settings**
+![image](https://user-images.githubusercontent.com/83840078/167213454-cc5f849b-64e9-4718-9fff-1353450cdf47.png)
+
+3. Click on **Personal Access Tokens** and then click on **Generate new token** button on top right
+![image](https://user-images.githubusercontent.com/83840078/167213482-79be095c-a2b6-4a67-81f0-e5d14d6e2858.png)
+
+4. Enter a note in the **Note** field and select the **repo** scope
+![image](https://user-images.githubusercontent.com/83840078/167213505-d0912467-f5b0-4d1b-84c3-03c07be273dd.png)
+
+5. Click on copy button to copy the token
+![image](https://user-images.githubusercontent.com/83840078/167213525-1d78dba9-df29-485f-a843-85db46ca2851.png)
+
+6. Keep a note of this token. It'll be used in the next lab.
+
+## Install Utilities ##
+
+1. Install [Node.Js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
