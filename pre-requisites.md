@@ -120,4 +120,4 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 ## Next Step
 
-[Lab 1: Setup Device, WebApp and Backend](Lab 1.md) 
+[Lab 1: Setup Device, WebApp and Backend](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop/blob/496eb2f61621624d29e985f37a094f876cb0f05c/Lab%201.md) 
