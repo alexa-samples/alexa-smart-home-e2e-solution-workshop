@@ -128,4 +128,4 @@ Congratulations! You have successfully finished your Pre-requisites lab. By now,
 
 In the next lab, we'll set up the device, web app and the backend. 
 
-[Lab 1: Setup Device, WebApp and Backend](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop/blob/496eb2f61621624d29e985f37a094f876cb0f05c/Lab%201.md) 
+[Lab 1: Setup Device, WebApp and Backend](Lab%201.md) 
