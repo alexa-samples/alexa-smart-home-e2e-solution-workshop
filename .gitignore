@@ -7,5 +7,5 @@
 #exclude node modules except the things layer
 **/nodejs
 **/node_modules
-!/lambda/thingsLayer/nodejs/node_modules/manageThings
-!/lambda/thingsLayer/nodejs/node_modules/lwa
+!/Lambda Functions/thingsLayer/nodejs/node_modules/manageThings
+!/Lambda Functions/thingsLayer/nodejs/node_modules/lwa
