@@ -1,0 +1,45 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0 */ 
+/* Licensed under the Amazon Software License  http://aws.amazon.com/asl/ */
+
+@import "~@aws-amplify/ui/src/Theme.css";
+@import "~@aws-amplify/ui/src/Angular.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+    height: 100%;
+}
+body {
+    background-color: wheat;
+    height: 100%;
+    min-width: 450px;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.topbar {
+    display: flex;
+    width: 100%;
+    background-color: rgb(47, 206, 206);
+}
+
+.topbar>a {
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+}
+
+.topbar>a:hover {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

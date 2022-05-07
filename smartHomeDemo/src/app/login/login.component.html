@@ -1,0 +1,15 @@
+<div class="modal" *ngIf="!manageUser.user">
+    <amplify-authenticator usernameAlias="email">
+        <amplify-sign-in 
+            header-text="Welcome to Smart Home" 
+            slot="sign-in"
+            [formFields]="signInFormFields"
+            ></amplify-sign-in>
+
+        <amplify-sign-up
+            slot="sign-up"
+            usernameAlias="email"
+            [formFields]="signUpFormFields"
+        ></amplify-sign-up>
+    </amplify-authenticator>
+</div>

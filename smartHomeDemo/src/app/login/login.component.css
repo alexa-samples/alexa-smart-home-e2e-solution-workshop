@@ -1,0 +1,13 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0 */ 
+/* Licensed under the Amazon Software License  http://aws.amazon.com/asl/ */
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+    overflow: auto;
+}

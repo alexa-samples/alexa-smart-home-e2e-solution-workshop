@@ -1,0 +1,24 @@
+<h1 *ngIf="manageUser.user">Welcome {{manageUser.user.name}}</h1>
+<h3>To control or to see the latest status, click on the device name. To add more devices, click on Manage Devices</h3>
+
+<div *ngIf="pageLoadingComplete; else pageLoading">
+    <div *ngIf="pageLoadError; else displayDevices">
+        <br><h3>Unable to load devices</h3>
+    </div>
+    <ng-template #displayDevices>
+        <div class="devices-container" *ngIf="manageUser.devices">
+            <div *ngFor="let index of manageUser.devices" >
+                <div>
+                    <a routerLink="/device/{{index.serialNumber}}">{{index.friendlyName}}</a>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #pageLoading>
+    <div class="spinner">
+       <mat-spinner>
+        </mat-spinner>       
+    </div>
+</ng-template>

@@ -1,0 +1,10 @@
+<div class="modal">
+    <form class="modal-content" [formGroup]="addDeviceForm" (ngSubmit)="onSubmit()">
+        <h1>Add a device</h1>
+        <div class="center-align">
+            <span><input type="text" formControlName="serialNumber" placeholder="Serial Number" id="serialNumber"></span>
+            <span><input type="text" formControlName="name" placeholder="Device Name" id="name"></span>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
