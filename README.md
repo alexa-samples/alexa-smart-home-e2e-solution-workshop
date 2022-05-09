@@ -32,7 +32,7 @@ In this lab, we’ll enable app-to-app account linking. Using this, users will b
 
 ## Next Step:
 
-**[PRE-REQUISITES](pre-requisites.md)**
+**[PRE-REQUISITES](Lab%200.md)**
 
 ## Security
 
