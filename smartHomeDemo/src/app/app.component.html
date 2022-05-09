@@ -1,0 +1,8 @@
+<div class="topbar">
+  <a routerLink="/home" routerLinkActive="active">Home</a>
+  <a routerLink="/device" routerLinkActive="active">Manage Devices</a>
+  <a routerLink="/replenishment" routerLinkActive="active">Services</a>
+  <a routerLink="" (click)="manageUser.logout()" *ngIf="manageUser.user">Logout</a>
+  <a routerLink="/login" routerLinkActive="active" *ngIf="!manageUser.user">Login</a>
+</div>
+<router-outlet></router-outlet>

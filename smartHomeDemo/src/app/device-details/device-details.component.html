@@ -1,0 +1,49 @@
+
+<div class="side-bar-container" (click)="getDevice()">
+    <div class="items"><a routerLink="/addDevice">Add a device</a></div>
+    <div *ngIf="!routeID; else showActiveList">
+        <div *ngFor="let index of manageUser.devices">
+            <div class="items"><a routerLink="/device/{{index.serialNumber}}">{{index.friendlyName}}</a></div>
+        </div>
+    </div>
+    <ng-template #showActiveList>
+        <div *ngFor="let index of manageUser.devices">
+            <div *ngIf="index.serialNumber != manageUser.device.serialNumber; else showDeviceActive">
+                <div class="items"><a routerLink="/device/{{index.serialNumber}}">{{index.friendlyName}}</a></div>
+            </div>
+            <ng-template #showDeviceActive>
+                <div class="items active"><a routerLink="/device/{{index.serialNumber}}">{{index.friendlyName}}</a></div>
+            </ng-template>
+        </div>
+    </ng-template>
+</div>
+
+<div *ngIf="pageLoadingComplete; else pageLoading">
+    <div class="details-container">
+        <div *ngIf="!routeID; else showDevice">
+            <h1>Select a device to view details</h1>
+        </div>
+        <ng-template #showDevice>
+                <h1>{{device.friendlyName}} Details  <a routerLink="/device" style="color: black;" (click)="onRemove()"><fa-icon [icon]="delIcon"></fa-icon></a></h1>
+                <table>
+                    <tr><th>Device Name</th><td>
+                        <input [readonly]="editable" [(ngModel)]="name" [style.background-color]="inputControl" id="friendlyName">
+                        <span *ngIf="editable" (click)="onEdit()"><fa-icon [icon]="editIcon"></fa-icon></span>
+                        <span *ngIf="!editable" (click)="onValueChange()"><fa-icon [icon]="check"></fa-icon></span>
+                        <span *ngIf="!editable" (click)="onEdit()"><fa-icon [icon]="cancel"></fa-icon></span></td></tr>
+                    <tr><th>Device Serial Number</th><td>{{device.serialNumber}}</td></tr>
+                    <tr><th>Power status</th><td>
+                        <mat-slide-toggle [(ngModel)]="checked" color="primary" id="devStatus" (change)="onStatusChange()">
+                        </mat-slide-toggle></td></tr>
+                    <tr><th>Battery Life</th><td>{{device.battery}} %</td></tr>
+                </table>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #pageLoading>
+    <div class="spinner">
+       <mat-spinner>
+        </mat-spinner>
+    </div>
+</ng-template>

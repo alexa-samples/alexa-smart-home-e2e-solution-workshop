@@ -1,0 +1,50 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0 */ 
+/* Licensed under the Amazon Software License  http://aws.amazon.com/asl/ */
+
+* {
+    font-size: large;  
+}
+.container {
+    position: relative;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container div {
+    flex: 0 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.container button {
+    background-color: rgb(245, 188, 30);
+    padding: 10px 0 10px 0;
+    color: white;
+    cursor: pointer;
+    width: 70%;
+}
+
+.container img {
+    width: 200px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 850px) {
+    .container img {
+        padding-top: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+    .container img {
+        padding-top: 50px;
+    }
+}

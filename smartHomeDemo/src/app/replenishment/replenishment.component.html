@@ -1,0 +1,28 @@
+<div *ngIf="pageLoadingComplete; else pageLoading">
+    <div class="container">
+        <div *ngIf="manageUser.currentSkillState == 'ENABLED'; else enableSkill">
+                <h1>Your account is linked with Alexa.</h1>
+                <h3>To control your devices with Alexa, just say <br><i>Alexa, turn on lights</i>. 
+                    <br>Alexa can also notify you when you are running low on supplies.<br> <br>
+                    To manage your notification or auto-reordering settings, please go to your Alexa app and navigate to your device settings.</h3>
+                <h3>Click <b>Disable</b> to de-link your account with Alexa.</h3>
+                <button (click)="onAllow()">Disable</button>
+        </div>
+        <ng-template #enableSkill>
+            <div>
+                <h1>Want to control your devices with Alexa or get notification when running low on supplies?</h1>
+                <br><img src="https://press.aboutamazon.com/static-files/a984ecc8-3352-4481-bcc9-b57137b41f30" alt="Alexa" width="200"><br>
+                <h3>Click <b>Allow</b> to link your Smart Home account with Alexa.</h3>
+                <button (click)="onAllow()">Allow</button>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #pageLoading>
+    <div class="spinner">
+        <mat-spinner>
+        </mat-spinner>
+    </div>
+</ng-template>
+

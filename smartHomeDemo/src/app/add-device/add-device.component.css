@@ -1,0 +1,73 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0 */ 
+/* Licensed under the Amazon Software License  http://aws.amazon.com/asl/ */
+
+* {
+    font-size: large;
+    overflow: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: x-large;
+}
+
+p {
+    text-align: center;
+    font-size: medium;
+}
+
+a {
+    font-size: medium;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    width: 650px;
+    background-color: (0,0,0,0.4);
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+}
+
+.modal-content {
+    background-color: rgb(47, 206, 206);
+    border: 1px solid;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.center-align {
+    margin: 0 auto;
+    width: 350px;
+}
+
+input {
+    width: 350px;
+    margin-bottom: 10px;
+    margin: 10px auto 10px auto;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: gray;
+    background: inherit;
+}
+
+select {
+    width: 350px;
+    margin-bottom: 10px;
+    margin: 10px auto 10px auto;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: gray;
+    background: inherit;
+}
+
+button {
+    background-color: rgb(245, 188, 30);
+    color: white;
+    cursor: pointer;
+    width: 350px;
+    margin: 10px auto 10px auto;
+    padding: 10px 0 10px 0;
+}
