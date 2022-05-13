@@ -171,7 +171,7 @@ Remember as discussed in earlier section, for sending asynchronous updates, your
 
 ## Summary & Next steps
 
-Congratulations! You’ve just enabled replenishment capability for your device and also enabled asynchronous updates.
+Congratulations! You’ve enabled the replenishment capability for your device and also enabled asynchronous updates.
 
 In the next lab, we’ll enable app-to-app account linking – you no longer have to go to the Alexa app or website to enable the skill. You’ll be able to enable the skill from within your web app.
 

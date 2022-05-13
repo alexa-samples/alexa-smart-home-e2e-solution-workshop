@@ -29,10 +29,10 @@ var awsIot = require('aws-iot-device-sdk');
 
 /* Replace the values from "Update the Virtual Device section of the lab manual" */
 var thingShadows = awsIot.thingShadow({
-  keyPath: "./certs/xxxxxxxxxx-private.pem.key",
+  keyPath: "./xxxxxxxxxx-private.pem.key",
   // Some browser might convert this file into a text document. In such cases, add .txt at the end of the cert path
-  certPath: "./certs/xxxxxxxxxx-certificate.pem.crt",
-  caPath: "./certs/AmazonRootCA1.pem",
+  certPath: "./xxxxxxxxxx-certificate.pem.crt",
+  caPath: "./AmazonRootCA1.pem",
   clientId: "xxxxxxxxxx",
   host: "xxxxxxxxxx-ats.iot.xxxxxxxxxx.amazonaws.com"
 });
