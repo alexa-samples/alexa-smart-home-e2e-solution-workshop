@@ -19,8 +19,8 @@ In this section, we’ll create a Smart Home Skill using the Alexa developer con
 
 1.	Open the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click the **Create Skill** button.
 2.	Enter the **Skill name**. For this solution, keep the default language as English (US). 
-3.	Under **Choose a model to add to your skill** page, select **Smart Home**, which is a pre-built model, and click **Create skill**.
-4.	Copy **Your Skill ID** to the clipboard. The ID will be in a format similar to the following: `amzn1.ask.skill.1a2b55555-c325-1234-d56e-1f234d5e6a78`
+3.	Under **Choose a model to add to your skill** page, select **Smart Home**, which is a pre-built voice interaction model, and click **Create skill**.
+4.	Copy **Your Skill ID** to the clipboard. The ID will be in a format similar to the following: `amzn1.ask.skill.xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 5.	Make a note of this skill ID. This will be used in future sections.
 
 #### Update the Backend Code
@@ -44,7 +44,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 ![image](https://user-images.githubusercontent.com/83840078/167219939-d88be852-f86b-460b-b98e-b79f493f66da.png)
  
-6.	Replace the code in the lambda function from the index.js file in the Smart Home Skill folder of the SmartHomeDemo\Lambda Function directory
+6.	Replace the code in the lambda function from the index.js file in the smartHomeSkill folder of the lambda Function directory
 
 ![image](https://user-images.githubusercontent.com/83840078/167219987-d4c5831b-6e2b-4592-918c-3ddb8c8ba564.png)
  
@@ -62,7 +62,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 ###### Creating an Alexa Client in Cognito
 
 1.	Sign in to the [AWS Cognito console](https://console.aws.amazon.com/cognito). Choose **Manage User Pools** and then select **webAppAuth** pool. This is the user pool which was created for you in Lab 1.
-2.	From the **General settings** menu, choose **App Clients** to set up applications that will connect to your Amazon Cognito user pool.
+2.	From the **General settings** menu, choose **App clients** to set up applications that will connect to your Amazon Cognito user pool.
 3.	Choose **Add another app client**, and provide the App client name. In this example, I have chosen “Alexa.” 
 4.	Update the **Refresh token expiration** to 3650 days, maximum allowed time such that refresh token won’t expire. Leave the rest of the options set to default and choose **Create App Client** to generate the client record for Alexa to use. This process creates an app client ID and a secret.
  
@@ -77,7 +77,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 
 ![image](https://user-images.githubusercontent.com/83840078/167220576-4d9fb08e-da70-4afe-96b6-616648333b97.png)
 
-8.	Make a note of this subdomain name and the region. 
+8.	Make a note of this subdomain name and the region value. 
 
 | Parameter | Value 
 | --- | ---
