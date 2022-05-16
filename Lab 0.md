@@ -72,8 +72,8 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 ## Create a Web App repository
 
-1. Navigate to the [webApp directory](webApp)
-2. Click **Use this template** button to create a copy in your repo
+1. Navigate to the [web app repository](https://github.com/alexa-labs/alexa-smart-home-e2e-solution-webapp)
+2. Click on **Use this template** button to create a copy in your repo
 
 ![image](https://user-images.githubusercontent.com/83840078/167212660-cdb8eb1e-6936-4a4e-b22f-372d8adef391.png)
 
@@ -88,6 +88,19 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 5. Click on the Green color button **Code**, and click the copy button next to your GIT url. Keep a note of this URL, this will be needed in the next lab.
 
 ![image](https://user-images.githubusercontent.com/83840078/167212990-a90d2fda-eaac-4e98-9bc8-342ffeb7d192.png)
+
+
+## Download the Smart Home E2E Solution repository
+
+1. Either download or clone the [alexa-smart-home-e2e-solution-workshop repository](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop)
+
+   - To download, click on **Code** and select **Download ZIP**
+
+
+
+   - To clone, use the following command from the CLI, `git clone https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop`
+
+2. We'll use the code from this directory in the following labs.
 
 
 ## Generate GitHub Access Token
@@ -114,17 +127,20 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 6. Keep a note of this token. It'll be used in the next lab.
 
+
 ## Install Utilities
 
-1. Install [Node.Js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
+1. Install [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
+
 
 ## Summary & Next Step
 
 Congratulations! You have successfully finished your Pre-requisites lab. By now, you would have created the following:
-•	Your Amazon AWS account
-•	Your Amazon Developer
-•	A repository for the web app
-•	A repo scope access token for your github repository
+
+- Your Amazon AWS account
+- Your Amazon Developer
+- A repository for the web app
+- A repo scope access token for your github repository
 
 In the next lab, we'll set up the device, web app and the backend. 
 

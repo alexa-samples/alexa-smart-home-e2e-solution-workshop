@@ -40,7 +40,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 ![image](https://user-images.githubusercontent.com/83840078/167219917-265e65c0-db99-4876-aa28-3b29a90862fc.png)
  
-5.	Scroll down, select Code and double click on index.js
+5.	Scroll down, select **Code** and double click on index.js
 
 ![image](https://user-images.githubusercontent.com/83840078/167219939-d88be852-f86b-460b-b98e-b79f493f66da.png)
  
