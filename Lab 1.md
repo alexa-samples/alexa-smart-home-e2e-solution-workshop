@@ -16,7 +16,7 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
  ![image](https://user-images.githubusercontent.com/83840078/167215069-c767c496-66cf-456b-9c8f-46851b590312.png)
 
 2.	Click on the **Create stack** button and select **With new resources (standard)**
-3.	Keep all the settings as is and in the **Amazon S3 URL**, paste the following URL https://test-ref-implementation-smart-home-solution.s3.amazonaws.com/cfn-templates/Root.yaml and click **Next**
+3.	Keep all the settings as is and in the **Amazon S3 URL**, paste the following URL https://alexa-smart-home-e2e-solution-workshop.s3.amazonaws.com/cfn-templates/Root.yaml and click **Next**
 4.	Enter a stack name of your choice
 5.	Enter the following parameters:
 
@@ -25,6 +25,7 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
 | DeviceName | Name for your simulated device | smartLight
 | DeviceSerialNumber | Serial number for your simulated device | myDevice001	
 | GithubRepo | URL for the web app github repo | [Git Repository URL](pre-requisites.md#create-a-web-app-repository)
+| GithubRepoBranch | Github branch for the web app repo | main
 | GitHubToken | Github access token | [GitHub Token](pre-requisites.md#generate-github-access-token)	
 | MQTT Endpoint | AWS IoT MQTT endpoint | [MQTT Endpoint](pre-requisites.md#install-aws-cli)	
 | environment |	Your webapp environment name | dev
@@ -54,11 +55,11 @@ In this section, we’ll create a device certificate for the virtual device to b
 3. Under the Attributes tab, you'll see the DeviceSerialNumber you provided in the previous is assigned to the serialNumber attribute of the thing.
 4. Click on **Certifcates** tab and then select **Create certificate**.
 5. Click on **Activate certificate** to activate the certificate.
-6. Click on **Download** button in front of Device Certitificate, Publick key file, private key file and Root CA certificate (Amaxon Root CA 1)
+6. Click on **Download** button in front of Device Certitificate, Public key file, private key file and Root CA certificate (Amaxon Root CA 1)
 > Note: This is the only time you can download the key files, so remember to download all of these files at this time.
-7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the thing folder (downloaded in the pre-requisites lab).
+7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the pre-requisites lab).
 8. Click on the certificate name and select **Attach policies**
-9. You should see a policy <thingName>-Policy-<env>, select the policy and click on **Attach policies**
+9. You should see a policy **<thingName>-Policy-<env>**, select the policy and click on **Attach policies**
 
 ###### Update the Virtual Device
 
@@ -74,10 +75,10 @@ In this section, we’ll update the virtual device code to refer to use the cert
 
 ```
 var thingShadows = awsIot.thingShadow({
-   keyPath: "./certs/xxxxxxxxxx-private.pem.key",
+   keyPath: "./xxxxxxxxxx-private.pem.key",
    // Some browser might convert this file into a text document. In such cases, add .txt at the end of the cert path
-   certPath: "./certs/xxxxxxxxxx-certificate.pem.crt.txt",
-   caPath: "./certs/AmazonRootCA1.pem",
+   certPath: "./xxxxxxxxxx-certificate.pem.crt",
+   caPath: "./AmazonRootCA1.pem",
    clientId: "xxxxxxxxxx",
    host: "xxxxxxxxxx-ats.iot.xxxxxxxxxx.amazonaws.com"
 });
@@ -86,10 +87,10 @@ var thingShadows = awsIot.thingShadow({
 4.	Final code should look something like below:
 ```
 var thingShadows = awsIot.thingShadow({
-  keyPath: "./certs/c3cb1ce16f-private.pem.key",
-  // Mac users - please remove the .txt at the end of the cert path
-  certPath: "./certs/c3cb1ce16f-certificate.pem.crt.txt",
-  caPath: "./certs/AmazonRootCA1.pem",
+  keyPath: "./c3cb1ce16f-private.pem.key",
+  // Some browser might convert this file into a text document. In such cases, add .txt at the end of the cert path
+  certPath: "./c3cb1ce16f-certificate.pem.crt",
+  caPath: "./AmazonRootCA1.pem",
   clientId: "SmartLight",
   host: "xxxxxxxxxx-ats.iot.us-east-1.amazonaws.com"
 ```

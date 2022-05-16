@@ -92,7 +92,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 ## Download the Smart Home E2E Solution repository
 
-1. Either download or clone the [alexa-smart-home-e2e-Solution-workshop repository](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop)
+1. Either download or clone the [alexa-smart-home-e2e-solution-workshop repository](https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop)
 
    - To download, click on **Code** and select **Download ZIP**
 
