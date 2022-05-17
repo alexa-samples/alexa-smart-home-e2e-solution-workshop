@@ -59,7 +59,7 @@ In this section, we’ll create a device certificate for the virtual device to b
 > Note: This is the only time you can download the key files, so remember to download all of these files at this time.
 7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the pre-requisites lab).
 8. Click on the certificate name and select **Attach policies**
-9. You should see a policy **<thingName>-Policy-<env>**, select the policy and click on **Attach policies**
+9. You should see a policy <thingName>-Policy-<env>, select the policy and click on **Attach policies**
 
 ###### Update the Virtual Device
 
@@ -67,7 +67,7 @@ In this section, we’ll update the virtual device code to refer to use the cert
 
 1.	Navigate to the Thing directory downloaded in the Pre-requisites lab
 2.	Open index.js with a text editor of your choice
-3.	Update the following code from line 10 to 16 with the following values:
+3.	Update the following code from line 32 to 37 with the following values:
 - **keypath** – name of your private key file downloaded while creating the device
 - **certPath** – name of your cert file downloaded while creating the device
 - **clientID** – a value of your choice
@@ -128,15 +128,16 @@ We’ll update the app_linking parameters in lab 5.
 
 #### Test the Virtual Device
 
-1.	Open command prompt and navigate to the Thing directory downloaded in the Pre-requisites lab.
-2.	Type the following command: `node index.js`
+1. Open command prompt and navigate to the Thing directory downloaded in the Pre-requisites lab.
+2. Type the following command: `node index.js`
  
 ![image](https://user-images.githubusercontent.com/83840078/167218473-947a6b0a-0fe0-4961-b942-4dc9b911fd35.png)
 
-This will start your virtual device and you should see a message as per the snapshot above indicating that the data submitted got successfully accepted.
-3.	In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, choose **Manage**, and then choose **Things**
-4.	Click on the thing you created and in the navigation pane, choose **Device Shadows**, and then click on **Classic Shadow**
-5.	You should see the Shadow State document with the following information 
+> This will start your virtual device and you should see a message as per the snapshot above indicating that the data submitted got successfully accepted.
+
+3. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, choose **Manage**, and then choose **Things**
+4. Click on the thing you created and in the navigation pane, choose **Device Shadows**, and then click on **Classic Shadow**
+5. You should see the Shadow State document with the following information 
 
 ![image](https://user-images.githubusercontent.com/83840078/167218577-8c1e683c-ff9e-4eaa-910f-97ef62428c68.png)
 
@@ -148,7 +149,7 @@ This will start your virtual device and you should see a message as per the snap
 4.	Once logged in, click on **Manage Devices** and select **Add a device**
 5.	Enter the serial number of the device which you assigned while creating your thing and provide a name you want to refer it with.
 
-> Note: Ensure that the device simulation is running. If not, then open command prompt and navigate to Things directory and type in the following command: `node index.js`
+> Note: ensure that the device simulation is running. If not, then open command prompt and navigate to Things directory and type in the following command: `node index.js`
 
 6.	Click **Submit** 
 7.	You’ll get a message that the device is successfully created.

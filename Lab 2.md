@@ -1,13 +1,13 @@
 ## Objective
 
-In this lab, you’ll be creating a Smart Home Skill with PowerController capability to control it using voice. To do this, you’ll be going through the following sections: 
+In this lab, you’ll be creating a Smart Home Skill with PowerController capability to control the device using voice. To do this, you’ll be going through the following sections: 
 
 - Create a Smart Home Skill
 - Update the backend code
 - Setup Account Linking
 - Test your skill
 
-## Lab Scope Architecture
+## Lab Architecture
 
 ![image](https://user-images.githubusercontent.com/83840078/167219414-ab5fb503-79ec-4f5c-b297-432be49760c2.png)
  
@@ -36,7 +36,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
  
 ![image](https://user-images.githubusercontent.com/83840078/167219852-0c068218-fd21-4185-ad18-056d7a9bfc50.png)
 
-4.	In the **Application ID** text box, paste the skill ID obtained in the previous section. Keep the **Enable trigger** checkbox selected and click on the **Add** button
+4.	In the **Application ID** text box, paste the skill ID obtained in the previous section and click on the **Add** button
 
 ![image](https://user-images.githubusercontent.com/83840078/167219917-265e65c0-db99-4876-aa28-3b29a90862fc.png)
  
@@ -44,7 +44,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 ![image](https://user-images.githubusercontent.com/83840078/167219939-d88be852-f86b-460b-b98e-b79f493f66da.png)
  
-6.	Replace the code in the lambda function from the index.js file in the smartHomeSkill folder of the lambda Function directory
+6.	Replace the code in the lambda function from the index.js file in the smartHomeSkill folder of the lambda directory
 
 ![image](https://user-images.githubusercontent.com/83840078/167219987-d4c5831b-6e2b-4592-918c-3ddb8c8ba564.png)
  
@@ -136,7 +136,7 @@ https://pitangui.amazon.com/api/skill/link/{Vendor ID}
 ![image](https://user-images.githubusercontent.com/83840078/167221527-8e8421bd-cdbb-4e60-a175-41c13f946a26.png)
 
 3.	Delete the code in the **code** section of the lambda function
-4.	**Copy** the code from index.js file in the syncUpdates folder of the SmartHomeDemo\Lambda Function directory and paste it in the Function code of the lambda function
+4.	**Copy** the code from index.js file in the syncUpdates folder of the lambda directory and paste it in the function code of the lambda function
 5.	Click **Deploy** to save and deploy the code.
 
 

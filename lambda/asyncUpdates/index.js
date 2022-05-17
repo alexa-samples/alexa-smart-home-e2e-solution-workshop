@@ -159,8 +159,10 @@ async function changeReportHandler (event) {
     }
   }
   const report = acr.get()
-  const data = await sendProactiveUpdate(report, accessToken)
   console.log('**************** CHANGE REPORT ***************')
+  console.log(JSON.stringify(report))
+
+  const data = await sendProactiveUpdate(report, accessToken)
   console.log(JSON.stringify(data))
   return 200
 }
@@ -200,8 +202,10 @@ async function dailyUpdateHandler (event) {
         value: thing.status === 'on' ? 'ON' : 'OFF' 
       })
       const report = acr.get()
-      const data = await sendProactiveUpdate(report, user.access_token)
       console.log('**************** CHANGE REPORT CLOUD WATCH ***************')
+      console.log(JSON.stringify(report))
+
+      const data = await sendProactiveUpdate(report, user.access_token)
       console.log(JSON.stringify(data))
     }
   }
@@ -299,8 +303,10 @@ async function addOrUpdateReportHandler (event) {
     })
   }
   const report = aur.get()
-  const data = await sendProactiveUpdate(report, accessToken)
   console.log('**************** AddOrUpdate Report *****************')
+  console.log(JSON.stringify(report))
+
+  const data = await sendProactiveUpdate(report, accessToken)
   console.log(JSON.stringify(data))
   return 200
 }
@@ -323,8 +329,10 @@ async function deleteReportHandler (event) {
   // Adds the payload object
   adr.addPayloadEndpoint({ endpointId: event.headers.serialNumber })
   const report = adr.get()
-  const data = await sendProactiveUpdate(report, accessToken)
   console.log('**************** Delete Report **************')
+  console.log(JSON.stringify(report))
+  
+  const data = await sendProactiveUpdate(report, accessToken)
   console.log(JSON.stringify(data))
   return 200
 }
