@@ -62,14 +62,8 @@ In this section, we are updating the lambda functions to trigger asynchronous up
 
 1.	Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home) and select syncUpdates function
 2.	Click on **Configuration**, select **Environment variables** and then click **Edit**
-
-![image](https://user-images.githubusercontent.com/83840078/167222873-28fb27db-797b-4b19-97c8-c327ca3bccb2.png)
-
 3.	Update the **CLIENT_ID_LWA** with the Alexa Client ID from the previous section.
 4.	Update the **SECRET_KEY_LWA** with the Alexa Secret Key from the previous section and click **Save**
- 
-![image](https://user-images.githubusercontent.com/83840078/167222812-c093dfd3-eac3-42ab-b371-c9a3988af3ea.png)
-
 5.	Go back to the lambda console and select **smartHomeSkill** function
 6.	Click on **Configuration**, select **Environment variables** and then click **Edit**
 7.	Update the **DASH_REPLENISHMENT** as `ENABLED` and **REPLENISHMENT_ID** with the replenishment id provided in the previous section
@@ -90,38 +84,30 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
  
  ![image](https://user-images.githubusercontent.com/83840078/167223092-c373ee55-e6a9-4db5-9e24-cc19cc319b10.png)
 
-2.	Click **Create a rule**.
-3.	Give your rule a name and update **Rule Query Statement** with the following value `SELECT *, topic(3) as thingName FROM '$aws/things/{thingname}/shadow/update/accepted'`, remember to update `{thingname}` with your thing’s name (case sensitive)
-4.	In **Set on or more actions**, choose **Add action**
+2.	Click on **Create a rule**
+3. Provide your rule a name and click **Next**
+4.	Update the **SQL statement** with the following value `SELECT *, topic(3) as thingName FROM '$aws/things/{thingname}/shadow/update/accepted'` and click **Next**. 
+> Remember to update `{thingname}` with your thing’s name (case sensitive)
+5.	In the **Attach rule actions**, click on the dropdown list for **Action 1** to select Lambda and asyncUpdates-<env> as the lambda function.
+6. Click **Next** and then click on the **Create** button
+7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select asyncUpdates function and then click on **Add trigger**
+8. Select AWS IoT and then select **Custom IoT rule** 
+9. From the **Existing rules** select the rule you created above and then select **Add**
 
-![image](https://user-images.githubusercontent.com/83840078/167223195-2f3cffde-c096-44a5-ba05-0d8e13de738d.png)
 
-5.	Select **Send a message to Lambda function** and click **Configure action**
- 
- ![image](https://user-images.githubusercontent.com/83840078/167223215-60ba15ee-d5c5-4d20-b219-1dba28140b49.png)
+#### Enable EventBridge to Send Inventory Information
 
-6.	From the dropdown, select **asyncUpdates** function and choose **Add action**.
+For the InventoryLevel sensor capability, we need to send data at least once per 24 hours. In this section, we’ll be creating an event to trigger the lambda function once every 24 hours to send inventory level data to the Alexa backend. 
 
-![image](https://user-images.githubusercontent.com/83840078/167223230-304ecff9-1a9b-4be4-883b-8426b0ea43b5.png)
- 
-7.	Click **Create Rule** at the bottom of the screen.
+1.	Open [Amazon EventBridge console](https://us-east-1.console.aws.amazon.com/events/home), in the navigation pane choose Events -> Rules and then select **Create rule**
+2.	Give your rule a name then select **Schedule** and click **Next**
+3. You can either define your **fine-grained schedule** via a cron expression or select **A schedule that runs at a regular rate** option. We want the event to occur once every 24 hours.
+4. For cron expression, use the below settings
 
-#### Enable CloudWatch to Send Inventory Information
-
-For the InventoryLevel sensor capability, we need to send data at least once per 24 hours. In this section, we’ll be creating a CloudWatch event to trigger the lambda function once every 24 hours to send inventory level data to the Alexa backend. 
-
-1.	Open [Amazon Cloudwatch console](https://console.aws.amazon.com/cloudwatch/home), in the navigation pane choose Rules and then select Create rule
- 
- ![image](https://user-images.githubusercontent.com/83840078/167223284-b321850e-b78b-4dcc-af5f-e7c2888da8b4.png)
-
-2.	In the **Event Source**, select **Schedule** and update **Fixed rate** of as 1 and selection and unit as **Days**
-
-![image](https://user-images.githubusercontent.com/83840078/167223316-8ae3d5bc-c96d-4999-a5df-e32a96bcf39a.png)
- 
-3.	In the Targets, choose **Add target**, select **Lambda function** from the drop down and select **asyncUpdates** as the function
-4.	Click on **Configure Details** and give your rule a name
-5.	Keep the **state** as **Enabled** and choose **Create rule**
-
+5. For a regular rate select **1** as the value and **Days** as the unit
+6. In the **Select target(s)** select Lambda fucntion and then select asyncUpdates lambda function
+7. Click on **Next** and then **Create rule** button
+In the **Event Source**, select **Schedule** and update **Fixed rate** of as 1 and selection and unit as **Days**
 
 ## Test your Solution
 

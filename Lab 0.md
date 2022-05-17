@@ -132,6 +132,10 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 1. Install [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once downloaded and installed check for the version.
 
+2. Opem comand prompt and navigate to the Thing directory downloaded in the previous step
+
+3. In the Thing directory, type the following command `npm install`
+
 
 ## Summary & Next Step
 
