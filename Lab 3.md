@@ -62,6 +62,9 @@ In this section, we are updating the lambda functions to trigger asynchronous up
 
 1.	Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home) and select syncUpdates function
 2.	Click on **Configuration**, select **Environment variables** and then click **Edit**
+
+![Screen Shot 2022-05-16 at 4 41 12 PM](https://user-images.githubusercontent.com/83840078/168862623-45a23778-fc6b-4450-b623-56dc0db5959a.png)
+
 3.	Update the **CLIENT_ID_LWA** with the Alexa Client ID from the previous section.
 4.	Update the **SECRET_KEY_LWA** with the Alexa Secret Key from the previous section and click **Save**
 5.	Go back to the lambda console and select **smartHomeSkill** function
@@ -86,13 +89,27 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
 
 2.	Click on **Create a rule**
 3. Provide your rule a name and click **Next**
+
+![Screen Shot 2022-05-16 at 4 44 29 PM](https://user-images.githubusercontent.com/83840078/168862798-637748c0-177e-4df2-9584-17fe66f1d551.png)
+
 4.	Update the **SQL statement** with the following value `SELECT *, topic(3) as thingName FROM '$aws/things/{thingname}/shadow/update/accepted'` and click **Next**. 
 > Remember to update `{thingname}` with your thing’s name (case sensitive)
+
+![Screen Shot 2022-05-16 at 4 48 44 PM](https://user-images.githubusercontent.com/83840078/168863008-5efcb3e8-0396-4f0f-b96a-4f153cfc4ecd.png)
+
 5.	In the **Attach rule actions**, click on the dropdown list for **Action 1** to select Lambda and asyncUpdates-<env> as the lambda function.
+ 
+ ![Screen Shot 2022-05-16 at 4 50 31 PM](https://user-images.githubusercontent.com/83840078/168863106-4280ee76-1268-4226-be7d-89e618de37a0.png)
+ 
 6. Click **Next** and then click on the **Create** button
 7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select asyncUpdates function and then click on **Add trigger**
-8. Select AWS IoT and then select **Custom IoT rule** 
-9. From the **Existing rules** select the rule you created above and then select **Add**
+9. Select AWS IoT and then select **Custom IoT rule** 
+ 
+ <img width="814" alt="Screen Shot 2022-05-16 at 7 40 32 PM" src="https://user-images.githubusercontent.com/83840078/168863456-4df6d4f8-54ab-48fd-a909-c79b459fd041.png">
+
+10. From the **Existing rules** select the rule you created above and then select **Add**
+ 
+<img width="815" alt="Screen Shot 2022-05-16 at 7 40 46 PM" src="https://user-images.githubusercontent.com/83840078/168863498-4373ea1a-7e3c-42f2-abd1-44a71a0263ae.png">
 
 
 #### Enable EventBridge to Send Inventory Information
@@ -100,14 +117,25 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
 For the InventoryLevel sensor capability, we need to send data at least once per 24 hours. In this section, we’ll be creating an event to trigger the lambda function once every 24 hours to send inventory level data to the Alexa backend. 
 
 1.	Open [Amazon EventBridge console](https://us-east-1.console.aws.amazon.com/events/home), in the navigation pane choose Events -> Rules and then select **Create rule**
+ 
+ ![Screen Shot 2022-05-16 at 4 55 07 PM](https://user-images.githubusercontent.com/83840078/168863630-f1481a89-bce2-47e8-8ba9-c43acc6cc1a3.png)
+
 2.	Give your rule a name then select **Schedule** and click **Next**
 3. You can either define your **fine-grained schedule** via a cron expression or select **A schedule that runs at a regular rate** option. We want the event to occur once every 24 hours.
-4. For cron expression, use the below settings
+   - For cron expression, use the below settings
+ 
+ ![Screen Shot 2022-05-16 at 5 12 15 PM](https://user-images.githubusercontent.com/83840078/168863921-9bdce40d-4758-453a-bb47-cae3c44a73a4.png)
 
-5. For a regular rate select **1** as the value and **Days** as the unit
+   - For a regular rate select **1** as the value and **Days** as the unit
+ 
+ ![Screen Shot 2022-05-16 at 5 11 57 PM](https://user-images.githubusercontent.com/83840078/168863892-60ea2488-9aa4-43b0-9d24-61b43650d09b.png)
+
 6. In the **Select target(s)** select Lambda fucntion and then select asyncUpdates lambda function
+ 
+ ![Screen Shot 2022-05-16 at 5 11 39 PM](https://user-images.githubusercontent.com/83840078/168864045-ea8b982f-2c67-498f-b73f-4ed2ff00a8b0.png)
+ 
 7. Click on **Next** and then **Create rule** button
-In the **Event Source**, select **Schedule** and update **Fixed rate** of as 1 and selection and unit as **Days**
+ 
 
 ## Test your Solution
 
