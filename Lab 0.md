@@ -1,9 +1,9 @@
 ## Objective
 
-In this lab, we'll be completing all the prerequisites for creating the Alexa Smart Home E2E Solution and generating the following parameters (needed in the following labs):
+In this lab, we'll complete all the pre-requisites for the Alexa Smart Home E2E Solution and generate the following parameters (needed in the following labs):
 
-- MQTT Endpoint
-- Github webApp respository URL
+- MQTT endpoint
+- Github web app respository URL
 - Github access token
 
 ## Project Structure
@@ -73,7 +73,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 ## Create a Web App repository
 
 1. Navigate to the [web app repository](https://github.com/alexa-labs/alexa-smart-home-e2e-solution-webapp)
-2. Click on **Use this template** button to create a copy in your repo
+2. Click on **Use this template** button to create a copy
 
 ![image](https://user-images.githubusercontent.com/83840078/167212660-cdb8eb1e-6936-4a4e-b22f-372d8adef391.png)
 
@@ -96,6 +96,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
    - To download, click on **Code** and select **Download ZIP**
 
+<img width="917" alt="Screen Shot 2022-05-16 at 2 43 44 PM" src="https://user-images.githubusercontent.com/83840078/168724999-79926107-a002-496d-a5ba-fdd3ca598b40.png">
 
 
    - To clone, use the following command from the CLI, `git clone https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop`
