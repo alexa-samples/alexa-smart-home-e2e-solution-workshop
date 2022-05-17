@@ -75,19 +75,19 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 1. Navigate to the [web app repository](https://github.com/alexa-labs/alexa-smart-home-e2e-solution-webapp)
 2. Click on **Use this template** button to create a copy
 
-![image](https://user-images.githubusercontent.com/83840078/167212660-cdb8eb1e-6936-4a4e-b22f-372d8adef391.png)
+<img width="813" alt="Screen Shot 2022-05-16 at 8 54 29 PM" src="https://user-images.githubusercontent.com/83840078/168725842-f9059b3b-7f20-43f5-ae57-c27c67a64ae4.png">
 
 3. Add details for your repository and click **Create repository from template**
 
-![image](https://user-images.githubusercontent.com/83840078/167212795-39104da7-ce02-4416-9690-20e68c00c725.png)
+<img width="763" alt="Screen Shot 2022-05-16 at 8 54 58 PM" src="https://user-images.githubusercontent.com/83840078/168725881-e67cb181-32b8-4e48-add1-68f6b5b06ba8.png">
 
 4. Once repository is created, it'll show all the files in your account
 
-![image](https://user-images.githubusercontent.com/83840078/167212862-78d6371b-91eb-4d63-82f5-db615dd28953.png)
+<img width="816" alt="Screen Shot 2022-05-16 at 8 55 33 PM" src="https://user-images.githubusercontent.com/83840078/168725909-a7183040-dfce-473f-91be-662262242b99.png">
 
 5. Click on the Green color button **Code**, and click the copy button next to your GIT url. Keep a note of this URL, this will be needed in the next lab.
 
-![image](https://user-images.githubusercontent.com/83840078/167212990-a90d2fda-eaac-4e98-9bc8-342ffeb7d192.png)
+<img width="412" alt="Screen Shot 2022-05-16 at 8 56 05 PM" src="https://user-images.githubusercontent.com/83840078/168725945-3d137bbd-d5f5-40d1-a086-342cdbb2eda3.png">
 
 
 ## Download the Smart Home E2E Solution repository
@@ -98,7 +98,6 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 <img width="917" alt="Screen Shot 2022-05-16 at 2 43 44 PM" src="https://user-images.githubusercontent.com/83840078/168724999-79926107-a002-496d-a5ba-fdd3ca598b40.png">
 
-
    - To clone, use the following command from the CLI, `git clone https://github.com/alexa-samples/alexa-smart-home-e2e-solution-workshop`
 
 2. We'll use the code from this directory in the following labs.
@@ -108,19 +107,19 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 1. Click on your Github account image on the top right corner and then click **Settings**
 
-![image](https://user-images.githubusercontent.com/83840078/167213429-ddede584-e8a6-4093-8589-7975212f2a16.png)
+<img width="192" alt="Screen Shot 2022-05-16 at 8 56 22 PM" src="https://user-images.githubusercontent.com/83840078/168725972-f8891e0f-abad-43d5-98c2-a3a31f2a17ec.png">
 
 2. Scroll down and select **Developer settings**
 
-![image](https://user-images.githubusercontent.com/83840078/167213454-cc5f849b-64e9-4718-9fff-1353450cdf47.png)
+<img width="303" alt="Screen Shot 2022-05-16 at 8 56 46 PM" src="https://user-images.githubusercontent.com/83840078/168726095-1f44c8f3-187e-49fd-977f-e4e2236f8803.png">
 
 3. Click on **Personal Access Tokens** and then click on **Generate new token** button on top right
 
-![image](https://user-images.githubusercontent.com/83840078/167213482-79be095c-a2b6-4a67-81f0-e5d14d6e2858.png)
+<img width="1101" alt="Screen Shot 2022-05-16 at 8 57 10 PM" src="https://user-images.githubusercontent.com/83840078/168726070-fb35a0f7-875c-475d-96c6-7b4484b2ca9e.png">
 
 4. Enter a note in the **Note** field and select the **repo** scope
 
-![image](https://user-images.githubusercontent.com/83840078/167213505-d0912467-f5b0-4d1b-84c3-03c07be273dd.png)
+<img width="799" alt="Screen Shot 2022-05-16 at 8 57 32 PM" src="https://user-images.githubusercontent.com/83840078/168726050-53ca0da7-41bd-4916-8e85-4701d675cd38.png">
 
 5. Click on copy button to copy the token
 
