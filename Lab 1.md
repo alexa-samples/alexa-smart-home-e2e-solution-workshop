@@ -55,7 +55,7 @@ In this section, we’ll create, activate and download certificates for the virt
 3. Under the Attributes tab, you'll see the DeviceSerialNumber you provided in the previous is assigned to the serialNumber attribute of the thing.
 4. Click on **Certifcates** tab and then select **Create certificate**.
 5. Click on **Activate certificate** to activate the certificate.
-6. Click on **Download** button in front of **Device Certitificate, Public key file, private key file** and **Root CA certificate** (Amaxon Root CA 1)
+6. Click on **Download** button in front of **Device Certitificate, Public key file, private key file** and **Root CA certificate**
 > Note: This is the only time you can download these key files, so remember to download all of these files at this time.
 7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the Pre-requisites lab).
 8. Click on the certificate name and then select **Attach policies**
