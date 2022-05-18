@@ -21,11 +21,11 @@ In this section, we’ll setup a DART device using the DRS console. You can conf
 1.	Open the [Amazon Dash Replenishment Developer Console](https://developer.amazon.com/dash-services/console/drs/home.html) and click the **Begin** button.
 2.	Choose **Create A Device**
 
-![image](https://user-images.githubusercontent.com/83840078/167222242-d4314a95-250a-4225-8118-ab8d285d838c.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/167222242-d4314a95-250a-4225-8118-ab8d285d838c.png>
  
 3.	Give your device a name and a model ID and click **Save**. You can also use **Generate New ID** to generate the model ID automatically.
  
- ![image](https://user-images.githubusercontent.com/83840078/167222274-591ed087-0857-4f90-b035-6bf4705118d2.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/167222274-591ed087-0857-4f90-b035-6bf4705118d2.png>
 
 4. Update your device settings:
    - Add or delete marketplaces. We need at least one marketplace.
@@ -33,7 +33,7 @@ In this section, we’ll setup a DART device using the DRS console. You can conf
    - Update your slot name which your customers can use to identify the consumable type. For e.g. Battery
    - Update the list of ASINs which your device will replenish
 
-![image](https://user-images.githubusercontent.com/83840078/167222318-7331212a-6299-4cd7-92d0-0a4618ac8ad2.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/167222318-7331212a-6299-4cd7-92d0-0a4618ac8ad2.png>
  
 Once done, you’ll need to contact the Solutions Architect you’re working with to get the replenishment ID. For this lab, we have already created a device with the following settings:
 | Parameter | Value
@@ -52,7 +52,7 @@ For your backend to be able to send asynchronous updates, your backend needs acc
 1.	Open the [Alexa Developer console](https://developer.amazon.com/alexa/console/ask) and then click on your smart home skill.
 2.	From the menu option in the left, select **Permissions** and enable **Send Alexa Events**
 
-![image](https://user-images.githubusercontent.com/83840078/167222522-cc06ff72-fbca-41c3-87bc-290dffb17f68.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/167222522-cc06ff72-fbca-41c3-87bc-290dffb17f68.png>
 
 3.	Make a note of the **Alexa Client Id** and **Alexa Client Secret**, we’ll need it in the next section
 
@@ -63,7 +63,7 @@ In this section, we are updating the lambda functions to trigger proactive updat
 1.	Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home) and select syncUpdates function
 2.	Click on **Configuration**, select **Environment variables** and then click **Edit**
 
-![Screen Shot 2022-05-16 at 4 41 12 PM](https://user-images.githubusercontent.com/83840078/168862623-45a23778-fc6b-4450-b623-56dc0db5959a.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/168862623-45a23778-fc6b-4450-b623-56dc0db5959a.png>
 
 3.	Update the **CLIENT_ID_LWA** with the Alexa Client ID from the previous section.
 4.	Update the **SECRET_KEY_LWA** with the Alexa Secret Key from the previous section and click **Save**
@@ -73,7 +73,7 @@ In this section, we are updating the lambda functions to trigger proactive updat
 
 > `ENABLED` is case sensitive
 
-![image](https://user-images.githubusercontent.com/83840078/167222881-cd419d53-9304-490f-b050-df9fed4b0707.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/167222881-cd419d53-9304-490f-b050-df9fed4b0707.png>
 
 8.	Go back to the lambda console and select **asyncUpdates** function. 
 9.	Update the **DASH_REPLENISHMENT**, **REPLENISHMENT_ID**, **CLIENT_ID_LWA** and **SECRET_KEY_LWA**, same as step 3, 4 and 5 and click **Save**
@@ -87,21 +87,21 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
 
 1.	Sign in to the [AWS IoT console](https://console.aws.amazon.com/iot/home). Choose **Act** and then **Rules** from the navigation pane on the left-hand side.
  
- ![image](https://user-images.githubusercontent.com/83840078/167223092-c373ee55-e6a9-4db5-9e24-cc19cc319b10.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/167223092-c373ee55-e6a9-4db5-9e24-cc19cc319b10.png>
 
 2.	Click on **Create a rule**
 3. Provide your rule a name and click **Next**
 
-![Screen Shot 2022-05-16 at 4 44 29 PM](https://user-images.githubusercontent.com/83840078/168862798-637748c0-177e-4df2-9584-17fe66f1d551.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/168862798-637748c0-177e-4df2-9584-17fe66f1d551.png>
 
 4.	Update the **SQL statement** with the following value `SELECT *, topic(3) as thingName FROM '$aws/things/{thingname}/shadow/update/accepted'` and click **Next**. 
 > Remember to update `{thingname}` with your thing’s name (case sensitive)
 
-![Screen Shot 2022-05-16 at 4 48 44 PM](https://user-images.githubusercontent.com/83840078/168863008-5efcb3e8-0396-4f0f-b96a-4f153cfc4ecd.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/168863008-5efcb3e8-0396-4f0f-b96a-4f153cfc4ecd.png>
 
 5.	In the **Attach rule actions**, click on the dropdown list for **Action 1** to select **Lambda** and **asyncUpdates** as the lambda function.
  
- ![Screen Shot 2022-05-16 at 4 50 31 PM](https://user-images.githubusercontent.com/83840078/168863106-4280ee76-1268-4226-be7d-89e618de37a0.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/168863106-4280ee76-1268-4226-be7d-89e618de37a0.png>
  
 6. Click **Next** and then click on the **Create** button
 7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select **asyncUpdates** function and then click on **Add trigger**
@@ -120,21 +120,21 @@ For the InventoryLevelSensor capability, we need to send data at least once per 
 
 1.	Open [Amazon EventBridge console](https://us-east-1.console.aws.amazon.com/events/home), in the navigation pane on the left, choose Events, then Rules and then select **Create rule**
  
- ![Screen Shot 2022-05-16 at 4 55 07 PM](https://user-images.githubusercontent.com/83840078/168863630-f1481a89-bce2-47e8-8ba9-c43acc6cc1a3.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/168863630-f1481a89-bce2-47e8-8ba9-c43acc6cc1a3.png>
 
 2.	Give your rule a name then select **Schedule** and click **Next**
 3. You can either define your **fine-grained schedule** via a cron expression or select **A schedule that runs at a regular rate** option. We want the event to occur once every 24 hours.
    - For cron expression, use the below settings
  
- ![Screen Shot 2022-05-16 at 5 12 15 PM](https://user-images.githubusercontent.com/83840078/168863921-9bdce40d-4758-453a-bb47-cae3c44a73a4.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/168863921-9bdce40d-4758-453a-bb47-cae3c44a73a4.png>
 
    - For a regular rate select **1** as the value and **Days** as the unit
  
- ![Screen Shot 2022-05-16 at 5 11 57 PM](https://user-images.githubusercontent.com/83840078/168863892-60ea2488-9aa4-43b0-9d24-61b43650d09b.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/168863892-60ea2488-9aa4-43b0-9d24-61b43650d09b.png>
 
 6. In the **Select target(s)** select Lambda fucntion and then select asyncUpdates lambda function
  
- ![Screen Shot 2022-05-16 at 5 11 39 PM](https://user-images.githubusercontent.com/83840078/168864045-ea8b982f-2c67-498f-b73f-4ed2ff00a8b0.png)
+ <img width="500" src=https://user-images.githubusercontent.com/83840078/168864045-ea8b982f-2c67-498f-b73f-4ed2ff00a8b0.png>
  
 7. Click on **Next** and then **Create rule** button
  
