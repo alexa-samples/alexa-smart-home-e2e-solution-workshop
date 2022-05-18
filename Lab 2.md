@@ -1,6 +1,6 @@
 ## Objective
 
-In this lab, you’ll be creating a Smart Home Skill with PowerController capability to control the device using voice. To do this, you’ll be going through the following sections: 
+In this lab, we’ll be creating a Smart Home Skill with PowerController capability to control the device using voice. To do this, we’ll be going through the following sections: 
 
 - Create a Smart Home Skill
 - Update the backend code
@@ -15,7 +15,7 @@ In this lab, you’ll be creating a Smart Home Skill with PowerController capabi
 
 #### Create a Smart Home Skill
 
-In this section, we’ll create a Smart Home Skill using the Alexa developer console. Alexa developer console provides a simple and convenient way to create and configure the skill. Another method is to use ASK CLI, not covered in this tutorial. ASK CLI provides additional options to developers, like subscribe to events such as skill enabled, skill disabled etc.
+In this section, we’ll create a Smart Home Skill using the Alexa developer console. Alexa developer console provides a simple and convenient way to create and configure the skill. Another method is to use ASK CLI, not covered in this tutorial. ASK CLI provides additional options to developers like subscribe to events such as skill enabled, skill disabled etc.
 
 1.	Open the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) and click the **Create Skill** button.
 2.	Enter the **Skill name**. For this solution, keep the default language as English (US). 
@@ -38,7 +38,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 4.	In the **Application ID** text box, paste the skill ID obtained in the previous section and click on the **Add** button
 
-![image](https://user-images.githubusercontent.com/83840078/167219917-265e65c0-db99-4876-aa28-3b29a90862fc.png)
+![Screen Shot 2022-05-16 at 4 18 34 PM](https://user-images.githubusercontent.com/83840078/168931810-0c9205d2-37c8-4be7-b6ba-cec1c59190b7.png)
  
 5.	Scroll down, select **Code** and double click on index.js
 
@@ -57,14 +57,14 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 #### Setup Account Linking
 
-In this section, we’ll enable account linking. A mechanism where user gives permission to Alexa to control his/her devices. Once user authenticates himself, your backend will share Access and Refresh tokens for the user with Alexa. Alexa will use these tokens to identify the user and control his/her devices.
+In this section, we’ll enable account linking. A mechanism where user gives permission to Alexa to control their devices. Once user ia authenticated, your backend will share Access and Refresh tokens for the user with Alexa. Alexa will use these tokens to identify the user and control their devices.
 
 ###### Creating an Alexa Client in Cognito
 
 1.	Sign in to the [AWS Cognito console](https://console.aws.amazon.com/cognito). Choose **Manage User Pools** and then select **webAppAuth** pool. This is the user pool which was created for you in Lab 1.
 2.	From the **General settings** menu, choose **App clients** to set up applications that will connect to your Amazon Cognito user pool.
 3.	Choose **Add another app client**, and provide the App client name. In this example, I have chosen “Alexa.” 
-4.	Update the **Refresh token expiration** to 3650 days, maximum allowed time such that refresh token won’t expire. Leave the rest of the options set to default and choose **Create App Client** to generate the client record for Alexa to use. This process creates an app client ID and a secret.
+4.	Update the **Refresh token expiration** to 3650 days, maximum allowed time such that refresh token will not expire for approx. 10 years. Leave the rest of the options set to default and choose **Create App Client** to generate the client record for Alexa to use. This process creates an app client ID and a secret.
  
  ![image](https://user-images.githubusercontent.com/83840078/167220407-aa90895d-18fd-49e7-9baa-ccfe6223d5cf.png)
 
@@ -97,7 +97,7 @@ In this section, we’ll enable account linking. A mechanism where user gives pe
 
 `https://{Subdomain}.auth.{Region}.amazoncognito.com/oauth2/authorize?response_type=code&redirect_uri=https://pitangui.amazon.com/api/skill/link/{Vendor ID}`
    - Replace {Subdomain} and {Region} with the values we noted earlier
-   - Replace {Vendor ID} with your specific vendor ID for your Alexa development account. The easiest way to find this is to scroll down to the bottom of the account linking page. Your Vendor ID will be the final piece of information in the Redirect URI’s.
+   - Replace {Vendor ID} with your specific vendor ID for your Alexa development account. The vendor ID is also available the bottom of the account linking page. Your Vendor ID will be the last item in the Redirect URI’s path.
 
 5. The Access Token URI will be made up of the following template (constructed URL – Access Token URI – is available in Key Parameters.xlsx file): `https://{Subdomain}.auth.{region}.amazoncognito.com/oauth2/token`
 
@@ -181,7 +181,7 @@ https://pitangui.amazon.com/api/skill/link/{Vendor ID}
 
 8.	Click ON or OFF to control the device. To control the device, Alexa sends a PowerController directive with the desired device state and your skill responds back to Alexa with the PowerController response with the updated device state.
 
-> Note: This kind of directive and response is referred to as Synchronous Response. To see more details about different type of responses supported by Alexa, click here.
+> Note: This kind of directive and response is referred to as Synchronous Response. To see more details about different type of responses supported by Alexa, click [here](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-response.html).
 
 ## Summary
 
