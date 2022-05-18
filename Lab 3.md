@@ -87,7 +87,7 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
 
 1.	Sign in to the [AWS IoT console](https://console.aws.amazon.com/iot/home). Choose **Act** and then **Rules** from the navigation pane on the left-hand side.
  
- <img width="500" src=https://user-images.githubusercontent.com/83840078/167223092-c373ee55-e6a9-4db5-9e24-cc19cc319b10.png>
+ <img src=https://user-images.githubusercontent.com/83840078/167223092-c373ee55-e6a9-4db5-9e24-cc19cc319b10.png>
 
 2.	Click on **Create a rule**
 3. Provide your rule a name and click **Next**
