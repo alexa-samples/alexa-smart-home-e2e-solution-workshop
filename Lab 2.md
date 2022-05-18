@@ -38,7 +38,7 @@ In this section, we’ll setup the lambda function for the Smart Home Skill and 
 
 4.	In the **Application ID** text box, paste the skill ID obtained in the previous section and click on the **Add** button
 
-![Screen Shot 2022-05-16 at 4 18 34 PM](https://user-images.githubusercontent.com/83840078/168931810-0c9205d2-37c8-4be7-b6ba-cec1c59190b7.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/168931810-0c9205d2-37c8-4be7-b6ba-cec1c59190b7.png>
  
 5.	Scroll down, select **Code** and double click on index.js
 
