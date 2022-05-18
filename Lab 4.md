@@ -1,11 +1,11 @@
 ## Objective
 
-In this lab, you’ll be enabling app-to-app account linking. This will allow you to enable and disable your skill from within your web app. To do this, we’ll go through the following sections: 
+In this lab, we’ll be enabling app-to-app account linking. This will allow us to enable and disable your skill from within your web app. To do this, we’ll go through the following sections: 
 
--	Update your web app code
--	Update your backend code
--	Update your Alexa Skill
--	Update your Cognito User Pool
+-	Update the web app code
+-	Update the backend code
+-	Update the Alexa Skill
+-	Update the Cognito User Pool
 -	Test your solution
 
 ## Lab Details
@@ -13,7 +13,7 @@ In this lab, you’ll be enabling app-to-app account linking. This will allow yo
 #### Update your web app
 
 In this section, we’ll update the web app with the parameters needed for app-to-app account linking.
-1.	Navigate to your web app repository which you cloned in the prerequisite lab.
+1.	Navigate to your web app repository which you created in the prerequisite lab.
 2.	Click on the **src** folder and then select **aws-params.js** file
 
 ![image](https://user-images.githubusercontent.com/83840078/167223796-866048de-4274-42b0-abe1-be46263da24f.png)
@@ -35,8 +35,8 @@ In this section, we’ll update the web app with the parameters needed for app-t
  
  ![image](https://user-images.githubusercontent.com/83840078/167224037-dcaeda31-84b0-461e-bde2-c95bde240693.png)
 
-6.	Click on **Commit Changes** at the bottom of the screen. This should automatically trigger re-deployment of your Web App.
-7.	Log in to [Amplify console](https://console.aws.amazon.com/amplify/home) and if the build is not in progress, check if the auto-deployment has automatically started (it can be validated using the timestamp of the last build). If it didn’t get auto-triggered then click on any of the four stages – Provision, Build, Deploy and Verify and click on **Redeploy this Version**.
+6.	Click on **Commit Changes** at the bottom of the screen. 
+7.	Log in to [Amplify console](https://console.aws.amazon.com/amplify/home) Click on any of the four stages – Provision, Build, Deploy and Verify and click on **Redeploy this Version**.
 
 ![image](https://user-images.githubusercontent.com/83840078/167224112-b12f3e7a-c273-4798-837b-0439fe01ef57.png)
 
