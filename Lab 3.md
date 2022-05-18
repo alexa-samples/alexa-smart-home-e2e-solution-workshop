@@ -1,14 +1,14 @@
 ## Objective
-In this lab, you’ll be enabling the replenishment capability of Alexa and asynchronous updates for your smart home skill. To do this, you’ll be going through the following sections: 
+In this lab, we'll enable the replenishment capability and send proactive updates to Alexa. To do this, we’ll be going through the following sections: 
 
 - Create a DART device
 - Enable skill to receive Asynchronous updates
 - Update the backend code
-- Update your IoT device to Trigger Asynchronous Updates
-- Enable CloudWatch to Send Inventory Information
+- Update the IoT device to trigger asynchronous Updates
+- Enable EventBridge to Send Inventory updates
 - Test your solution
 
-## Lab Scope Architeture
+## Lab Architeture
 
 ![image](https://user-images.githubusercontent.com/83840078/167222161-83b266db-b867-412f-966d-347bdad0323f.png)
  
@@ -47,7 +47,7 @@ Replenishment ID for this slot is `arn:alexa:smarthome:drs:sensor:4fbc3d24-a7f8-
 
 #### Enable Skill to Receive Asynchronous Updates
 
-For your backend to be able to send asynchronous updates, your backend needs access token from Alexa to uniquely identify the user. For this purpose, when asynchronous events are enabled, during skill enablement, Alexa sends an an AccessGrant directive. This directive contains an Authorization code. Your backend will use this authorization code to receive access/refresh tokens and use them later while sending asynchronous updates.
+For your backend to be able to send asynchronous updates, your backend needs access token from Alexa to uniquely identify the user. For this purpose, when asynchronous events are enabled, during skill enablement, Alexa sends an an [AccessGrant directive](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-authorization.html#acceptgrant). This directive contains an Authorization code. Your backend will use this authorization code to receive access/refresh tokens and use them later while sending the proactive state updates.
 
 1.	Open the [Alexa Developer console](https://developer.amazon.com/alexa/console/ask) and then click on your smart home skill.
 2.	From the menu option in the left, select **Permissions** and enable **Send Alexa Events**
@@ -58,7 +58,7 @@ For your backend to be able to send asynchronous updates, your backend needs acc
 
 #### Update the Backend Code
 
-In this section, we are updating the lambda functions to trigger asynchronous updates – AddOrUpdate Report (when a new device is added), Change Report (when state of the device is changed) and Delete Report (when the device is deleted).
+In this section, we are updating the lambda functions to trigger proactive updates – [AddOrUpdateReport](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-discovery.html#add-or-update-report) (when a new device is added), [Change Report](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-changereport.html#changereport-event) (when state of the device is changed) and [Delete Report](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-discovery.html#deletereport-event) (when the device is deleted).
 
 1.	Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home) and select syncUpdates function
 2.	Click on **Configuration**, select **Environment variables** and then click **Edit**
@@ -70,6 +70,8 @@ In this section, we are updating the lambda functions to trigger asynchronous up
 5.	Go back to the lambda console and select **smartHomeSkill** function
 6.	Click on **Configuration**, select **Environment variables** and then click **Edit**
 7.	Update the **DASH_REPLENISHMENT** as `ENABLED` and **REPLENISHMENT_ID** with the replenishment id provided in the previous section
+
+> `ENABLED` is case sensitive
 
 ![image](https://user-images.githubusercontent.com/83840078/167222881-cd419d53-9304-490f-b050-df9fed4b0707.png)
 
@@ -97,26 +99,26 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
 
 ![Screen Shot 2022-05-16 at 4 48 44 PM](https://user-images.githubusercontent.com/83840078/168863008-5efcb3e8-0396-4f0f-b96a-4f153cfc4ecd.png)
 
-5.	In the **Attach rule actions**, click on the dropdown list for **Action 1** to select Lambda and asyncUpdates-<env> as the lambda function.
+5.	In the **Attach rule actions**, click on the dropdown list for **Action 1** to select **Lambda** and **asyncUpdates** as the lambda function.
  
  ![Screen Shot 2022-05-16 at 4 50 31 PM](https://user-images.githubusercontent.com/83840078/168863106-4280ee76-1268-4226-be7d-89e618de37a0.png)
  
 6. Click **Next** and then click on the **Create** button
-7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select asyncUpdates function and then click on **Add trigger**
-9. Select AWS IoT and then select **Custom IoT rule** 
+7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select **asyncUpdates** function and then click on **Add trigger**
+9. Select **AWS IoT** and then select **Custom IoT rule** 
  
- <img width="814" alt="Screen Shot 2022-05-16 at 7 40 32 PM" src="https://user-images.githubusercontent.com/83840078/168863456-4df6d4f8-54ab-48fd-a909-c79b459fd041.png">
+ <img width="500" alt="Screen Shot 2022-05-16 at 7 40 32 PM" src="https://user-images.githubusercontent.com/83840078/168863456-4df6d4f8-54ab-48fd-a909-c79b459fd041.png">
 
 10. From the **Existing rules** select the rule you created above and then select **Add**
  
-<img width="815" alt="Screen Shot 2022-05-16 at 7 40 46 PM" src="https://user-images.githubusercontent.com/83840078/168863498-4373ea1a-7e3c-42f2-abd1-44a71a0263ae.png">
+<img width="500" alt="Screen Shot 2022-05-16 at 7 40 46 PM" src="https://user-images.githubusercontent.com/83840078/168863498-4373ea1a-7e3c-42f2-abd1-44a71a0263ae.png">
 
 
 #### Enable EventBridge to Send Inventory Information
 
-For the InventoryLevel sensor capability, we need to send data at least once per 24 hours. In this section, we’ll be creating an event to trigger the lambda function once every 24 hours to send inventory level data to the Alexa backend. 
+For the InventoryLevelSensor capability, we need to send data at least once per 24 hours. In this section, we’ll be creating an event to trigger the lambda function once every 24 hours to send inventory level data to the Alexa backend. 
 
-1.	Open [Amazon EventBridge console](https://us-east-1.console.aws.amazon.com/events/home), in the navigation pane choose Events -> Rules and then select **Create rule**
+1.	Open [Amazon EventBridge console](https://us-east-1.console.aws.amazon.com/events/home), in the navigation pane on the left, choose Events, then Rules and then select **Create rule**
  
  ![Screen Shot 2022-05-16 at 4 55 07 PM](https://user-images.githubusercontent.com/83840078/168863630-f1481a89-bce2-47e8-8ba9-c43acc6cc1a3.png)
 
