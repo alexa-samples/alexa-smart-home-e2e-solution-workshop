@@ -173,7 +173,7 @@ Remember as discussed in earlier section, for sending asynchronous updates, your
 
 8.	Now, come back to the Alexa skill testing page, on step 7, you should see the asynchronous updates your backend is sending will start appearing.
 
-![image](https://user-images.githubusercontent.com/83840078/167223579-65609ef3-15b5-4391-9bdd-7f4ebadb4423.png)
+<img width="500" src=https://user-images.githubusercontent.com/83840078/167223579-65609ef3-15b5-4391-9bdd-7f4ebadb4423.png>
 
 #### Alexa app
 1.	If you haven’t followed the step for disabling and re-enabling the skill in the previous section, then go to your skills and disable the skill
