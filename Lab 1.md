@@ -1,8 +1,8 @@
 ## Objective
 
-In this lab, you’ll be setting up a virtual device, web app and the backend infrastructure. To do the setup, we'll use the CloudFormation to setup all the AWS services (Amplify, API Gateway, Cognito, DynamoDB, Lambda, CloudWatch & IAM) automatically. 
+In this lab, we’ll be setting up a virtual device, web app and the backend infrastructure. To do the setup, we'll use the CloudFormation to setup all the AWS services (Amplify, API Gateway, Cognito, DynamoDB, Lambda, CloudWatch & IAM) automatically. 
 
-## Lab Scope Architecture
+## Lab Architecture
 
 ![image](https://user-images.githubusercontent.com/83840078/167214929-05c96196-4afa-45dc-906b-1ff95d20e1e9.png)
 
@@ -34,7 +34,7 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
 7.	Scroll down and click **Next**
 8.	Scroll to the bottom and **select the checkboxes** to provide CloudFormation access to create resources on your behalf and click on the **Create Stack button**.
 
->Note: CloudFormation will now use AWS Amplify to create the web app from the Github URL you provided, AWS Cognito to setup authentication, API gateway to create an API endpoint for your web app / Alexa Smart Home skill to access your backend resources, AWS Lambda functions to create a serverless backend infrastructure and DynamoDB for token storage. This complete setup will take a few minutes.
+>Note: CloudFormation will now use AWS Amplify to create the web app from the github URL you provided, AWS Cognito to setup authentication, API gateway to create an API endpoint for your web app / Alexa Smart Home skill to access your backend resources, AWS Lambda functions to create a serverless backend infrastructure and DynamoDB for token storage. This complete setup will take a few minutes.
 
 9.	You can refresh the page to see the progress. Once all the resources are created (it’ll take about 3 minutes), you’ll see a message like below:
  
@@ -46,20 +46,20 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
 
 #### Setup a Virtual device
 
-###### Create Device Certificate
+###### Create, Activate & Download Device Certificates
 
-In this section, we’ll create a device certificate for the virtual device to be able to communicate with the Shadow topic in the AWS IoT cloud.
+In this section, we’ll create, activate and download certificates for the virtual device to be able to communicate with the Shadow topic in the AWS IoT cloud.
 
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, choose **Manage**, and then choose **Things**
 2. Click on the thing name which got created in the previous section. 
 3. Under the Attributes tab, you'll see the DeviceSerialNumber you provided in the previous is assigned to the serialNumber attribute of the thing.
 4. Click on **Certifcates** tab and then select **Create certificate**.
 5. Click on **Activate certificate** to activate the certificate.
-6. Click on **Download** button in front of Device Certitificate, Public key file, private key file and Root CA certificate (Amaxon Root CA 1)
-> Note: This is the only time you can download the key files, so remember to download all of these files at this time.
-7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the pre-requisites lab).
-8. Click on the certificate name and select **Attach policies**
-9. You should see a policy <thingName>-Policy-<env>, select the policy and click on **Attach policies**
+6. Click on **Download** button in front of **Device Certitificate, Public key file, private key file** and **Root CA certificate** (Amaxon Root CA 1)
+> Note: This is the only time you can download these key files, so remember to download all of these files at this time.
+7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the Pre-requisites lab).
+8. Click on the certificate name and then select **Attach policies**
+9. You should see a policy `<thingName>-Policy-<env>`, select the policy and click on **Attach policies**
 
 ###### Update the Virtual Device
 
@@ -70,6 +70,7 @@ In this section, we’ll update the virtual device code to refer to use the cert
 3.	Update the following code from line 32 to 37 with the following values:
 - **keypath** – name of your private key file downloaded while creating the device
 - **certPath** – name of your cert file downloaded while creating the device
+- **caPath** - ensure the name of the RootCA certificate is AmazonRootCA1.pem. If not, then update the path value to match the name.
 - **clientID** – a value of your choice
 - **host** – MQTT endpoint
 
@@ -84,29 +85,18 @@ var thingShadows = awsIot.thingShadow({
 });
 ```
 
-4.	Final code should look something like below:
-```
-var thingShadows = awsIot.thingShadow({
-  keyPath: "./c3cb1ce16f-private.pem.key",
-  // Some browser might convert this file into a text document. In such cases, add .txt at the end of the cert path
-  certPath: "./c3cb1ce16f-certificate.pem.crt",
-  caPath: "./AmazonRootCA1.pem",
-  clientId: "SmartLight",
-  host: "xxxxxxxxxx-ats.iot.us-east-1.amazonaws.com"
-```
-
-5.	Update the `thingname` on line 25 with the Thing Name value from the Key Parameters.xlsx file
+4.	Update the `thingname` on line 46 with the ThingName shown in the CloudFormation's Output window 
 
 `var thingName = ‘xxxxxxxxxxxxx’;`
 
+5.	Save and close the file
 
-6.	Hit save and close the file.
 
 #### Build the Web App
 
-In this section, we’ll update and build the web app using the values obtained from the previous section. Once the build is finished, we’ll be able to access the web app using the WebAppURL available in the CloudFormation’s Output window. 
+In this section, we’ll update and build the web app using the values obtained from the previous section. Once the build is finished, we’ll be able to access the web app using the WebAppURL available in the CloudFormation’s Output window
 
-1.	Navigate to the repository which you cloned.
+1.	Navigate to the repository which you created from the template.
 2.	Navigate to the src folder and then select aws-params.js
 3.	Edit this file to update the following parameters:
 
@@ -116,7 +106,7 @@ In this section, we’ll update and build the web app using the values obtained 
 | `aws_user_pools_id` |	Cognito User Pool ID (CloudFormation Output Window)
 | `aws_user_pools_web_client_id` | Cognito Web Client ID (CloudFormation Output Window)
 
-We’ll update the app_linking parameters in lab 5.
+We’ll update the app_linking parameters in lab 4.
 
 4.	Once done, scroll down and click on **Commit Changes** button to apply the changes
 5.	Open the [AWS Amplify console](https://console.aws.amazon.com/amplify/home), select your web app and click on **Run Build**.
@@ -133,7 +123,7 @@ We’ll update the app_linking parameters in lab 5.
  
 ![image](https://user-images.githubusercontent.com/83840078/167218473-947a6b0a-0fe0-4961-b942-4dc9b911fd35.png)
 
-> This will start your virtual device and you should see a message as per the snapshot above indicating that the data submitted got successfully accepted.
+> This will start the simulation for your virtual device and establish a connection with the AWS IoT cloud.You should see a message as per the snapshot above indicating that the data submitted got successfully accepted.
 
 3. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, choose **Manage**, and then choose **Things**
 4. Click on the thing you created and in the navigation pane, choose **Device Shadows**, and then click on **Classic Shadow**
@@ -149,7 +139,7 @@ We’ll update the app_linking parameters in lab 5.
 4.	Once logged in, click on **Manage Devices** and select **Add a device**
 5.	Enter the serial number of the device which you assigned while creating your thing and provide a name you want to refer it with.
 
-> Note: ensure that the device simulation is running. If not, then open command prompt and navigate to Things directory and type in the following command: `node index.js`
+> Note: ensure that the device simulation is running. If not, then open command prompt and navigate to Thing directory and type in the following command: `node index.js`
 
 6.	Click **Submit** 
 7.	You’ll get a message that the device is successfully created.
@@ -162,6 +152,6 @@ We’ll update the app_linking parameters in lab 5.
 
 Congratulations! You’ve now created a simulated device and a web app to register and control the device (very cool!). 
 
-In the next lab, we’ll set up a Smart Home skill and modify components (AWS Cognito) of this lab to implement account linking and update the backend code (syncUpdates lambda function) to control the device using Alexa.
+In the next lab, we’ll set up a Smart Home skill and modify Cognito settings to implement account linking and update the backend code (syncUpdates lambda function) to control the device using Alexa.
 
 [Lab 2: Setup Smart Home Skill](Lab%202.md)
