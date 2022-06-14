@@ -26,7 +26,7 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
 | DeviceSerialNumber | Serial number for your simulated device | myDevice001	
 | GithubRepo | URL for the web app github repo | [Git Repository URL](Lab%200.md#create-a-web-app-repository)
 | GithubRepoBranch | Github branch for the web app repo | main
-| GitHubToken | Github access token | [GitHub Token](Lab%200.md#generate-github-access-tokenn)	
+| GitHubToken | Github access token | [GitHub Token](Lab%200.md#generate-github-access-token)	
 | MQTT Endpoint | AWS IoT MQTT endpoint | [MQTT Endpoint](Lab%200.md#install-aws-cli)	
 | environment |	Your webapp environment name | dev
 
