@@ -24,10 +24,10 @@ In this section, we’ll use AWS CloudFormation service to setup all the service
 | --- | --- | ---
 | DeviceName | Name for your simulated device | smartLight
 | DeviceSerialNumber | Serial number for your simulated device | myDevice001	
-| GithubRepo | URL for the web app github repo | [Git Repository URL](pre-requisites.md#create-a-web-app-repository)
+| GithubRepo | URL for the web app github repo | [Git Repository URL](Lab%201.md#create-a-web-app-repository)
 | GithubRepoBranch | Github branch for the web app repo | main
-| GitHubToken | Github access token | [GitHub Token](pre-requisites.md#generate-github-access-token)	
-| MQTT Endpoint | AWS IoT MQTT endpoint | [MQTT Endpoint](pre-requisites.md#install-aws-cli)	
+| GitHubToken | Github access token | [GitHub Token](Lab%201.md#generate-github-access-tokenn)	
+| MQTT Endpoint | AWS IoT MQTT endpoint | [MQTT Endpoint](Lab%201.md#install-aws-cli)	
 | environment |	Your webapp environment name | dev
 
 6.	Click **Next**
