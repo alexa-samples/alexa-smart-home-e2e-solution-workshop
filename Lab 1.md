@@ -57,7 +57,7 @@ In this section, we’ll create, activate and download certificates for the virt
 5. Click on **Activate certificate** to activate the certificate.
 6. Click on **Download** button in front of **Device Certitificate, Public key file, private key file** and **Root CA certificate**
 > Note: This is the only time you can download these key files, so remember to download all of these files at this time.
-7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder (downloaded in the Pre-requisites lab).
+7. Store all of these files - certificate, key files (both public and private) and Root CA certificate in the **Thing** folder ([downloaded in the Pre-requisites lab](Lab%200.md#download-the-smart-home-e2e-solution-repository)).
 8. Click on the certificate name and then select **Attach policies**
 9. You should see a policy `<thingName>-Policy-<env>`, select the policy and click on **Attach policies**
 
@@ -96,7 +96,7 @@ var thingShadows = awsIot.thingShadow({
 
 In this section, we’ll update and build the web app using the values obtained from the previous section. Once the build is finished, we’ll be able to access the web app using the WebAppURL available in the CloudFormation’s Output window
 
-1.	Navigate to the repository which you created from the template.
+1.	Navigate to [the repository which you created from the template](Lab%200.md#create-a-web-app-repository).
 2.	Navigate to the src folder and then select aws-params.js
 3.	Edit this file to update the following parameters:
 
