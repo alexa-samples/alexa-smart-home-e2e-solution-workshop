@@ -104,15 +104,6 @@ In this section, we’ll be creating a Rule on IoT Shadow to trigger asyncUpdate
  <img width="500" src=https://user-images.githubusercontent.com/83840078/168863106-4280ee76-1268-4226-be7d-89e618de37a0.png>
  
 6. Click **Next** and then click on the **Create** button
-7. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/home), select **asyncUpdates** function and then click on **Add trigger**
-9. Select **AWS IoT** and then select **Custom IoT rule** 
- 
- <img width="500" alt="Screen Shot 2022-05-16 at 7 40 32 PM" src="https://user-images.githubusercontent.com/83840078/168863456-4df6d4f8-54ab-48fd-a909-c79b459fd041.png">
-
-10. From the **Existing rules** select the rule you created above and then select **Add**
- 
-<img width="500" alt="Screen Shot 2022-05-16 at 7 40 46 PM" src="https://user-images.githubusercontent.com/83840078/168863498-4373ea1a-7e3c-42f2-abd1-44a71a0263ae.png">
-
 
 #### Enable EventBridge to Send Inventory Information
 
