@@ -17,7 +17,7 @@
 
 'use strict'
 
-const { v4: uuidv4 } = require('uuid')
+const AWS = require('aws-sdk')
 const DEFAULT_DESCRIPTION = 'Battery powered smart light'
 const DEFAULT_DISPLAY_CATEGORIES = ['LIGHT']
 const DEFAULT_FRIENDLY_NAME = 'Smart Light'
@@ -67,7 +67,7 @@ class AlexaAsyncUpdate {
         header: {
           namespace: this.getValueOrDefault(opts.namespace, 'Alexa'),
           name: this.getValueOrDefault(opts.name, 'ChangeReport'),
-          messageId: this.getValueOrDefault(opts.messageId, uuidv4()),
+          messageId: this.getValueOrDefault(opts.messageId, AWS.util.uuid.v4()),
           payloadVersion: this.getValueOrDefault(opts.payloadVersion, '3')
         },
         endpoint: {
@@ -147,7 +147,7 @@ class AlexaAsyncUpdate {
       timeOfSample: new Date().toISOString(),
       uncertaintyInMilliseconds: this.getValueOrDefault(opts.uncertaintyInMilliseconds, 0)
     }
-    if (propert.instance === undefined) {
+    if (property.instance === undefined) {
       delete property.instance
     }
     return property
