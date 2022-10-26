@@ -15,7 +15,7 @@
 
 'use strict'
 
-const { v4: uuidv4 } = require('uuid')
+const AWS = require('aws-sdk')
 const DEFAULT_DESCRIPTION = 'Battery powered smart light'
 const DEFAULT_DISPLAY_CATEGORIES = ['LIGHT']
 const DEFAULT_FRIENDLY_NAME = 'Smart Light'
@@ -65,7 +65,7 @@ class AlexaResponse {
         header: {
           namespace: this.getValueOrDefault(opts.namespace, 'Alexa'),
           name: this.getValueOrDefault(opts.name, 'Response'),
-          messageId: this.getValueOrDefault(opts.messageId, uuidv4()),
+          messageId: this.getValueOrDefault(opts.messageId, AWS.util.uuid.v4()),
           correlationToken: this.getValueOrDefault(opts.correlationToken, undefined),
           payloadVersion: this.getValueOrDefault(opts.payloadVersion, '3')
         },
